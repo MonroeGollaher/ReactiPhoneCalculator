@@ -9,3 +9,21 @@
   font-size: 45px;
   cursor: pointer;
 }
+
+.Button.zero {
+  width: 250px;
+  grid-column: 1 / span 2;
+  border-radius: 57.5px;
+  position: relative;
+  justify-content: flex-start;
+  padding: 43px;
+}
+
+.Button.function {
+  color: black;
+  background: #a5a5a5;
+}
+
+.Button.operator {
+  background: #f1a33c;
+}
