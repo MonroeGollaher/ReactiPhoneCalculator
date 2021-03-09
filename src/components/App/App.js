@@ -5,8 +5,7 @@ import "./App.css"
 const App = () => {
   const [value, setValue] = useState("0")
   const [memory, setMemory] = useState(null)
-  const [operator, setOperator] = useState(null)
- 
+  const [operator, setOperator] = useState(null) 
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value)
@@ -30,29 +29,86 @@ const App = () => {
       return
     }
 
-    if(content === '+') {
-      setMemory(parseFloat(value))
-      setValue("0")
-      setOperator("+")
+    if(content === ".") {
+      if(value.includes('.')) return
+
+      setValue( value + ".")
       return
     }
 
-    if(content === '−') {
-      setMemory(parseFloat(value))
+    if (content === "+") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value))
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value))
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value))
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value))
+        }
+      } else {
+        setMemory(parseFloat(value))
+      }
+
+      setValue("0");
+      setOperator("+");
+      return;
+    }
+
+    if (content === "−") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value))
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value))
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value))
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value))
+        }
+      } else {
+        setMemory(parseFloat(value))
+      }
       setValue("0")
-      setOperator("-")
+      setOperator("−")
       return
     }
 
-    if(content === '×') {
-      setMemory(parseFloat(value))
+    if (content === "×") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value))
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value))
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value))
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value))
+        }
+      } else {
+        setMemory(parseFloat(value))
+      }
+
       setValue("0")
       setOperator("×")
       return
     }
 
-    if(content === '÷') {
-      setMemory(parseFloat(value))
+    if (content === "÷") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value))
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value))
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value))
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value))
+        }
+      } else {
+        setMemory(parseFloat(value))
+      }
       setValue("0")
       setOperator("÷")
       return
@@ -76,7 +132,11 @@ const App = () => {
       return
     }
 
-    setValue((parseFloat(num + content)).toString())
+    if(value[value.length - 1] === '.') {
+      setValue(value + content)
+    } else {
+      setValue(parseFloat(num + content).toString())
+    }
   }
 
   return (
@@ -109,7 +169,7 @@ const App = () => {
         <Button onButtonClick={ handleButtonPress } content="=" type="operator" />
       </div>
       <div className="bottom">
-        -
+        
       </div>
     </div>
   )
