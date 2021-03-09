@@ -11,13 +11,13 @@ const App = () => {
   const [operator, setOperator] = useState(null) 
 
   useEffect(() => {
-    setTime( new Date())
-  }, [( new Date()).getMinutes()])
+    setTime(new Date())
+  }, [new Date().getMinutes()])
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value)
 
-    if(content === 'AC') {
+    if(content === "AC") {
       setValue("0")
       setMemory(null)
       setOperator(null)
@@ -37,60 +37,61 @@ const App = () => {
     }
 
     if(content === ".") {
-      if(value.includes('.')) return
+      if(value.includes(".")) return
 
-      setValue( value + ".")
+      setValue(value + ".")
       return
     }
 
-    if (content === "+") {
-      if (operator !== null) {
-        if (operator === "+") {
+    if(content === "+") {
+      if(operator !== null) {
+        if(operator === "+") {
           setMemory(memory + parseFloat(value))
-        } else if (operator === "−") {
+        } else if(operator === "−") {
           setMemory(memory - parseFloat(value))
-        } else if (operator === "×") {
+        } else if(operator === "×") {
           setMemory(memory * parseFloat(value))
-        } else if (operator === "÷") {
+        } else if(operator === "÷") {
           setMemory(memory / parseFloat(value))
         }
       } else {
         setMemory(parseFloat(value))
       }
 
-      setValue("0");
-      setOperator("+");
-      return;
+      setValue("0")
+      setOperator("+")
+      return
     }
-
-    if (content === "−") {
-      if (operator !== null) {
-        if (operator === "+") {
+    
+    if(content === "−") {
+      if(operator !== null) {
+        if(operator === "+") {
           setMemory(memory + parseFloat(value))
-        } else if (operator === "−") {
+        } else if(operator === "−") {
           setMemory(memory - parseFloat(value))
-        } else if (operator === "×") {
+        } else if(operator === "×") {
           setMemory(memory * parseFloat(value))
-        } else if (operator === "÷") {
+        } else if(operator === "÷") {
           setMemory(memory / parseFloat(value))
         }
       } else {
         setMemory(parseFloat(value))
       }
+
       setValue("0")
       setOperator("−")
       return
     }
 
-    if (content === "×") {
-      if (operator !== null) {
-        if (operator === "+") {
+    if(content === "×") {
+      if(operator !== null) {
+        if(operator === "+") {
           setMemory(memory + parseFloat(value))
-        } else if (operator === "−") {
+        } else if(operator === "−") {
           setMemory(memory - parseFloat(value))
-        } else if (operator === "×") {
+        } else if(operator === "×") {
           setMemory(memory * parseFloat(value))
-        } else if (operator === "÷") {
+        } else if(operator === "÷") {
           setMemory(memory / parseFloat(value))
         }
       } else {
@@ -102,35 +103,36 @@ const App = () => {
       return
     }
 
-    if (content === "÷") {
-      if (operator !== null) {
-        if (operator === "+") {
+    if(content === "÷") {
+      if(operator !== null) {
+        if(operator === "+") {
           setMemory(memory + parseFloat(value))
-        } else if (operator === "−") {
+        } else if(operator === "−") {
           setMemory(memory - parseFloat(value))
-        } else if (operator === "×") {
+        } else if(operator === "×") {
           setMemory(memory * parseFloat(value))
-        } else if (operator === "÷") {
+        } else if(operator === "÷") {
           setMemory(memory / parseFloat(value))
         }
       } else {
         setMemory(parseFloat(value))
       }
+
       setValue("0")
       setOperator("÷")
       return
     }
 
-    if(content === '=') {
-      if(!operator) return 
+    if(content === "=") {
+      if(!operator) return
 
-      if(operator === '+') {
+      if(operator === "+") {
         setValue((memory + parseFloat(value)).toString())
-      } else if(operator === '-') {
+      } else if(operator === "−") {
         setValue((memory - parseFloat(value)).toString())
-      } else if(operator === '×') {
+      } else if(operator === "×") {
         setValue((memory * parseFloat(value)).toString())
-      } else if(operator === '÷') {
+      } else if(operator === "÷") {
         setValue((memory / parseFloat(value)).toString())
       }
 
@@ -139,7 +141,7 @@ const App = () => {
       return
     }
 
-    if(value[value.length - 1] === '.') {
+    if(value[value.length - 1] === ".") {
       setValue(value + content)
     } else {
       setValue(parseFloat(num + content).toString())
