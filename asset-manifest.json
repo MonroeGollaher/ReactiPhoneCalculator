@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ReactiPhoneCalculator/static/css/main.2e684e71.chunk.css",
-    "main.js": "/ReactiPhoneCalculator/static/js/main.8e41a6aa.chunk.js",
-    "main.js.map": "/ReactiPhoneCalculator/static/js/main.8e41a6aa.chunk.js.map",
+    "main.js": "/ReactiPhoneCalculator/static/js/main.99896191.chunk.js",
+    "main.js.map": "/ReactiPhoneCalculator/static/js/main.99896191.chunk.js.map",
     "runtime-main.js": "/ReactiPhoneCalculator/static/js/runtime-main.b3d4eb65.js",
     "runtime-main.js.map": "/ReactiPhoneCalculator/static/js/runtime-main.b3d4eb65.js.map",
     "static/js/2.116072dc.chunk.js": "/ReactiPhoneCalculator/static/js/2.116072dc.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.b3d4eb65.js",
     "static/js/2.116072dc.chunk.js",
     "static/css/main.2e684e71.chunk.css",
-    "static/js/main.8e41a6aa.chunk.js"
+    "static/js/main.99896191.chunk.js"
   ]
 }
