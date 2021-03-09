@@ -1,11 +1,18 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Button from '../Button'
 import "./App.css"
+import statusbar from '../../assets/statusbar.png'
+import commafy from '../utils/commafy'
 
 const App = () => {
+  const [time, setTime] = useState(new Date())
   const [value, setValue] = useState("0")
   const [memory, setMemory] = useState(null)
   const [operator, setOperator] = useState(null) 
+
+  useEffect(() => {
+    setTime( new Date())
+  }, [( new Date()).getMinutes()])
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value)
@@ -142,15 +149,29 @@ const App = () => {
   return (
     <div className="App">
       <div className="top">
-        4:43
+        <div className="time">
+          { time
+            .getHours()
+            .toString()
+            .padStart(2, "0") }
+          :
+          { time
+            .getMinutes()
+            .toString()
+            .padStart(2, "0") 
+          }
+        </div>
+        <div className="menu">
+          <img src={ statusbar } alt="statusbar" />
+        </div>
       </div>
       <div className="display">
-        { value }
+        { commafy(value) }
       </div>
       <div className="buttons">
+        <Button onButtonClick={ handleButtonPress } content="AC" type="function" />
         <Button onButtonClick={ handleButtonPress } content="±" type="function" />
         <Button onButtonClick={ handleButtonPress } content="%" type="function" />
-        <Button onButtonClick={ handleButtonPress } content="AC" type="function" />
         <Button onButtonClick={ handleButtonPress } content="÷" type="operator" />
         <Button onButtonClick={ handleButtonPress } content="7" />
         <Button onButtonClick={ handleButtonPress } content="8" />

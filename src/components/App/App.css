@@ -5,9 +5,12 @@
   color: white;
   border-radius: 50px;
   padding: 20px;
+  position: relative;
 }
 
 .top {
+  display: flex;
+  justify-content: space-between;
   height: 250px;
   padding: 0 20px;
 }
@@ -27,6 +30,13 @@
 }
 
 .bottom {
-   
+  position: absolute;
+  width: 200px;
+  height: 5px;
+  background: white;
+  bottom: 10px;
+  left: 50%;
+  border-radius: 4px;
+  transform: translate(-50%);
 }
 
